@@ -22,6 +22,7 @@ func Create(response http.ResponseWriter, request *http.Request) {
 }
 
 func AllPersonalidades(r http.ResponseWriter, req *http.Request) {
+	r.Header().Set("Content-Type", "application/json")
 	var p []models.Personalidade
 	database.DB.Find(&p)
 	json.NewEncoder(r).Encode(p)
